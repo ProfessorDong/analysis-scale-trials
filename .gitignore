@@ -1,0 +1,27 @@
+# Restricted data. None of this may ever enter the repository.
+# Project Data Sphere and the duloxetine trial are held under data use
+# agreements that permit analysis and the publication of aggregate results,
+# but not redistribution of participant-level records.
+data/
+*.sas7bdat
+*.xpt
+*.zip
+ProjectDataSphere/
+**/extracted/
+.dryad_credentials
+*credentials*
+*.token
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.bbl
+*.blg
+*.synctex.gz
