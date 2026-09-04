@@ -4,7 +4,16 @@ title: "analysis-scale-trials: code and derived results for the analysis-scale r
 abstract: >-
   Analysis pipeline, simulation, and derived summary results for a study of how
   an unrecorded choice of analysis scale changes what a randomized trial
-  concludes. Contains no participant-level data.
+  concludes, across 27 randomized trials and 1,445 post-randomization
+  comparisons. Two scripts in reproduce/ need no credentials and no local data:
+  reproduce_worked_example.py applies the pre-specified specification menu to a
+  publicly redistributable trial and shows the mean-based P-value moving from
+  0.029 to 0.353 while the rank-based P-value stays put, and
+  reproduce_calibration.py reproduces the null floor that every observed rate
+  must be read against. Contains no participant-level data: results/ holds
+  endpoint-level summaries only, because two of the three trial sources are held
+  under data use agreements that permit publication of aggregate results but not
+  redistribution of records.
 type: software
 authors:
   - family-names: Meng
@@ -19,7 +28,7 @@ authors:
     given-names: Liang
     orcid: "https://orcid.org/0000-0002-8585-1087"
     affiliation: "Department of Electrical and Computer Engineering, Baylor University"
-doi: 10.5281/zenodo.22281796
+doi: 10.5281/zenodo.22281795
 license: MIT
 version: 1.0.0
 date-released: "2026-09-02"
