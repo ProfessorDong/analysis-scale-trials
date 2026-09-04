@@ -1,5 +1,7 @@
 # analysis-scale-trials
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22281796.svg)](https://doi.org/10.5281/zenodo.22281796)
+
 Code and derived results for **"An unrecorded analysis choice can change what a
 randomized trial concludes."**
 
@@ -67,7 +69,9 @@ about eight minutes on one core.
 
 ## Citation
 
-See `CITATION.cff`.
+Archived on Zenodo: https://doi.org/10.5281/zenodo.22281796
+
+See `CITATION.cff` for the full citation metadata.
 
 ## License
 
