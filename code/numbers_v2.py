@@ -114,6 +114,16 @@ for _, r in cost.iterrows():
     sp = np.log10(max(r[f"p_t_{s}"] for s in NONDEL)) - np.log10(min(r[f"p_t_{s}"] for s in NONDEL))
     m(f"cost{r['variable']}SpanT", f"{sp:.1f}"); m(f"cost{r['variable']}Skew", f"{r['skew']:.1f}")
     m(f"cost{r['variable']}Theta", f"{r['auc']:.3f}")
+m("costMaxSpanMW", f"{max(np.log10(max(r[f'p_mw_{s}'] for s in NONDEL)) - np.log10(min(r[f'p_mw_{s}'] for s in NONDEL)) for _, r in cost.iterrows()):.2f}")
+flu = pf[pf.variable == "postvax.B.Brisbane"].iloc[0]
+m("fluSpanTstrict", f"{np.log10(max(flu[f'p_t_{s}'] for s in STRICT)) - np.log10(min(flu[f'p_t_{s}'] for s in STRICT)):.0f}")
+m("fluSpanMWnondel", f"{np.log10(max(flu[f'p_mw_{s}'] for s in NONDEL)) - np.log10(min(flu[f'p_mw_{s}'] for s in NONDEL)):.3f}")
+# Kernel counterexample of the supplement: Gaussian kernel, Silverman's normal-reference bandwidth
+# h = 1.06 s n^(-1/5), control outcomes {1,2,3,4,8}, treated outcome 3.5, recorded and log scales.
+def _ksmooth(c, y):
+    c = np.asarray(c, float); h = 1.06 * c.std(ddof=1) * len(c) ** -0.2
+    return float(np.mean(1 - stats.norm.cdf((y - c) / h)))
+m("kernelRaw", f"{_ksmooth([1, 2, 3, 4, 8], 3.5):.4f}"); m("kernelLog", f"{_ksmooth(np.log([1, 2, 3, 4, 8]), np.log(3.5)):.4f}")
 near = pf[(pf.auc - 0.5).abs() < 0.03]
 m("nNearHalf", len(near)); m("nNearHalfCvm", int((near.p_cvm_perm < 0.05).sum()))
 m("agreeCvmMW", pct(((pf.p_cvm_perm < 0.05) == (pf.p_mw_recorded < 0.05)).mean(), 1))

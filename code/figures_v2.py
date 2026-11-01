@@ -66,12 +66,18 @@ tl["mw"] = np.maximum(tl.mw, FLOOR); tl["t"] = np.maximum(tl.t, FLOOR)
 write("spans_trial.dat", tl[["mw", "t", "k"]])
 
 # ---- verdict-change rates (rows from the bottom up)
+# The rates and their cluster bootstrap intervals are read from v2_summary.json so that the
+# figure shows exactly the values of the table in the main text (one bootstrap run, one seed).
+summ = json.load(open(RES / "v2_summary.json"))
 rows = []
-for y, (df, m, lab) in enumerate([(neg, "nondel", "before randomization, sample-preserving"), (neg, "strict", "before randomization, strictly increasing"),
-                                  (last, "nondel", "last visit, sample-preserving"), (post, "nondel", "first visit, sample-preserving"),
-                                  (post, "strict", "first visit, strictly increasing")]):
-    t, tem, tep = boot_rate(df, f"flip_t_{m}"); mw, mwem, mwep = boot_rate(df, f"flip_mw_{m}")
-    rows.append(dict(y=y, t=t, tem=tem, tep=tep, mw=mw, mwem=mwem, mwep=mwep, km=int(df[f"flip_t_{m}"].sum()), kr=int(df[f"flip_mw_{m}"].sum()), nt=len(df), label=lab))
+for y, (df, blk, m, lab) in enumerate([(neg, "negative_control", "nondel", "before randomization, sample-preserving"), (neg, "negative_control", "strict", "before randomization, strictly increasing"),
+                                       (last, "post_last (sensitivity)", "nondel", "last visit, sample-preserving"), (post, "post_first (primary)", "nondel", "first visit, sample-preserving"),
+                                       (post, "post_first (primary)", "strict", "first visit, strictly increasing")]):
+    r = summ[blk][m]
+    t, tlo, thi = 100 * r["rate_t"], 100 * r["rate_t_ci"][0], 100 * r["rate_t_ci"][1]
+    mw, mlo, mhi = 100 * r["rate_mw"], 100 * r["rate_mw_ci"][0], 100 * r["rate_mw_ci"][1]
+    assert r["flips_t"] == int(df[f"flip_t_{m}"].sum()) and summ[blk]["n"] == len(df)
+    rows.append(dict(y=y, t=t, tem=t - tlo, tep=thi - t, mw=mw, mwem=mw - mlo, mwep=mhi - mw, km=r["flips_t"], kr=r["flips_mw"], nt=summ[blk]["n"], label=lab))
 write("rates.dat", pd.DataFrame(rows))
 
 # ---- mechanism: trial quartiles of |log SD ratio| (bootstrap by trial)
