@@ -1,0 +1,92 @@
+id: Colorec_Amgen_2006_309
+source: PDS
+nct: NCT00364013
+title: 'Amgen 20050203 (PRIME): panitumumab plus FOLFOX vs FOLFOX, first-line metastatic colorectal'
+design: parallel
+unit: individual
+status: included
+arms:
+  file: adsl_pds2019.sas7bdat
+  subject: SUBJID
+  column: TRT
+  evidence: 'DDT_203: TRT = randomized treatment; ATRT = actual'
+tables:
+- file: adlb_pds2019.sas7bdat
+  kind: long
+  subject: SUBJID
+  param: LBTEST
+  value: LBSTRESN
+  visit: VISIT
+  role: safety_lab
+  visits:
+    pre:
+    - Screening
+    pre_dose:
+    - Cycle 1, day 1
+    post: ^Cycle (\d+), day (\d+)$
+  param_roles:
+    Carcinoembryonic Antigen: secondary
+- file: adls_pds2019.sas7bdat
+  kind: long
+  subject: SUBJID
+  param: LSCAT
+  value: LSSLD
+  visit: VISIT
+  role: tumour
+  visits:
+    pre:
+    - Screening
+    pre_dose: []
+    post: ^Week (\d+)$
+  exclude_params:
+    New lesion: rule 8
+    Non-target lesion: rule 9
+- file: adpm_pds2019.sas7bdat
+  kind: wide_visit
+  subject: SUBJID
+  visit: VISIT
+  role: vital
+  visits:
+    pre:
+    - Screening
+    pre_dose:
+    - Cycle 1, day 1
+    post: ^Cycle (\d+), day (\d+)$
+  variables:
+    WEIGHT:
+      timing: post
+      role: vital
+      label: Body weight by visit (adpm)
+      endpoint: WEIGHT
+      order: 0
+- file: adsl_pds2019.sas7bdat
+  kind: wide
+  subject: SUBJID
+  variables:
+    AGE:
+      timing: pre
+      role: baseline
+      label: Age
+      endpoint: null
+      order: 0
+    B_WEIGHT:
+      timing: pre
+      role: baseline
+      label: Baseline weight
+      endpoint: null
+      order: 0
+    B_HEIGHT:
+      timing: pre
+      role: baseline
+      label: Baseline height
+      endpoint: null
+      order: 0
+    DIAGMONS:
+      timing: pre
+      role: baseline
+      label: Months since diagnosis
+      endpoint: null
+      order: 0
+  exclude:
+    DTHDY: rule 8 censored
+    PFSDYCR: rule 8 censored

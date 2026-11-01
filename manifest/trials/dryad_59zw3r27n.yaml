@@ -1,0 +1,186 @@
+id: dryad_59zw3r27n
+doi: 10.5061/dryad.59zw3r27n
+source: Dryad
+title: 'TERECO: telerehabilitation for COVID-19 survivors, 1:1 block-randomized'
+design: parallel
+unit: individual
+status: included
+arms:
+  file: doi_10.5061_dryad.59zw3r27n__TERECO_Public_Data_wide.csv
+  subject: num_ID
+  column: group_randomized
+  evidence: Column group_randomized (1/2) matches the published 59 vs 61 allocation; treat_corticosteroid and treat_oxygen
+    are prior treatments, not allocation
+tables:
+- file: doi_10.5061_dryad.59zw3r27n__TERECO_Public_Data_wide.csv
+  kind: wide
+  subject: num_ID
+  variables:
+    _6MWD1:
+      timing: pre
+      role: primary
+      label: 6-minute walking distance, assessment 1 (baseline)
+      endpoint: 6MWD
+      order: 0
+    _6MWD2:
+      timing: post
+      role: primary
+      label: 6-minute walking distance, assessment 2 (6 weeks, primary endpoint time)
+      endpoint: 6MWD
+      order: 1
+    _6MWD3:
+      timing: post
+      role: primary
+      label: 6-minute walking distance, assessment 3 (28 weeks)
+      endpoint: 6MWD
+      order: 2
+    squat1:
+      timing: pre
+      role: secondary
+      label: Squat time (s), assessment 1 (baseline)
+      endpoint: squat
+      order: 0
+    squat2:
+      timing: post
+      role: secondary
+      label: Squat time (s), assessment 2 (6 weeks)
+      endpoint: squat
+      order: 1
+    squat3:
+      timing: post
+      role: secondary
+      label: Squat time (s), assessment 3 (28 weeks)
+      endpoint: squat
+      order: 2
+    fvc1:
+      timing: pre
+      role: secondary
+      label: FVC, assessment 1 (baseline)
+      endpoint: fvc
+      order: 0
+    fvc2:
+      timing: post
+      role: secondary
+      label: FVC, assessment 2 (6 weeks)
+      endpoint: fvc
+      order: 1
+    fvc3:
+      timing: post
+      role: secondary
+      label: FVC, assessment 3 (28 weeks)
+      endpoint: fvc
+      order: 2
+    fev1:
+      timing: pre
+      role: secondary
+      label: FEV1, assessment 1 (baseline)
+      endpoint: fev
+      order: 0
+    fev2:
+      timing: post
+      role: secondary
+      label: FEV1, assessment 2 (6 weeks)
+      endpoint: fev
+      order: 1
+    fev3:
+      timing: post
+      role: secondary
+      label: FEV1, assessment 3 (28 weeks)
+      endpoint: fev
+      order: 2
+    mvv1:
+      timing: pre
+      role: secondary
+      label: Maximal voluntary ventilation, assessment 1 (baseline)
+      endpoint: mvv
+      order: 0
+    mvv2:
+      timing: post
+      role: secondary
+      label: Maximal voluntary ventilation, assessment 2 (6 weeks)
+      endpoint: mvv
+      order: 1
+    mvv3:
+      timing: post
+      role: secondary
+      label: Maximal voluntary ventilation, assessment 3 (28 weeks)
+      endpoint: mvv
+      order: 2
+    pef1:
+      timing: pre
+      role: secondary
+      label: Peak expiratory flow, assessment 1 (baseline)
+      endpoint: pef
+      order: 0
+    pef2:
+      timing: post
+      role: secondary
+      label: Peak expiratory flow, assessment 2 (6 weeks)
+      endpoint: pef
+      order: 1
+    pef3:
+      timing: post
+      role: secondary
+      label: Peak expiratory flow, assessment 3 (28 weeks)
+      endpoint: pef
+      order: 2
+    SF12_PCS1:
+      timing: pre
+      role: secondary
+      label: SF-12 physical component, assessment 1 (baseline)
+      endpoint: SF12_PCS
+      order: 0
+    SF12_PCS2:
+      timing: post
+      role: secondary
+      label: SF-12 physical component, assessment 2 (6 weeks)
+      endpoint: SF12_PCS
+      order: 1
+    SF12_PCS3:
+      timing: post
+      role: secondary
+      label: SF-12 physical component, assessment 3 (28 weeks)
+      endpoint: SF12_PCS
+      order: 2
+    SF12_MCS1:
+      timing: pre
+      role: secondary
+      label: SF-12 mental component, assessment 1 (baseline)
+      endpoint: SF12_MCS
+      order: 0
+    SF12_MCS2:
+      timing: post
+      role: secondary
+      label: SF-12 mental component, assessment 2 (6 weeks)
+      endpoint: SF12_MCS
+      order: 1
+    SF12_MCS3:
+      timing: post
+      role: secondary
+      label: SF-12 mental component, assessment 3 (28 weeks)
+      endpoint: SF12_MCS
+      order: 2
+    age:
+      timing: pre
+      role: baseline
+      label: Age
+      endpoint: null
+      order: 0
+    los_days:
+      timing: pre
+      role: baseline
+      label: Hospital length of stay before enrolment
+      endpoint: null
+      order: 0
+    days_onset_to_admission:
+      timing: pre
+      role: baseline
+      label: Days from symptom onset to admission
+      endpoint: null
+      order: 0
+  exclude:
+    '*GLI*': rule 8 rescaling of the same spirometry as percent predicted
+    '*_cn_*': rule 8 rescaling
+    fev_fvc_ratio*: rule 8 derived ratio
+    mMRC*: rule 9 ordinal
+    time_onset*: pre-randomization timing variables, not outcomes

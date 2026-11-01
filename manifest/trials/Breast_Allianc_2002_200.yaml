@@ -1,0 +1,7 @@
+id: Breast_Allianc_2002_200
+source: PDS
+nct: NCT00041119
+title: 'CALGB 40101: adjuvant AC versus paclitaxel in early breast cancer'
+status: excluded
+why: 'rule 8: the deposit carries only survival and disease-free survival months (survmos, dfsmos) and categorical fields;
+  no continuous outcome and no continuous pre-randomization variable'

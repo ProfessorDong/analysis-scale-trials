@@ -1,0 +1,39 @@
+id: dryad_cv37539
+doi: 10.5061/dryad.cv37539
+source: Dryad
+title: 'Cowling: randomized placebo-controlled trial of inactivated influenza vaccine in children (HAI titer mediation)'
+design: parallel
+unit: individual
+status: included
+arms:
+  file: doi_10.5061_dryad.cv37539__kid_all.csv
+  subject: hhID
+  column: intervention
+  evidence: 'README: intervention = vaccination group assigned (TIV / placebo)'
+tables:
+- file: doi_10.5061_dryad.cv37539__kid_all.csv
+  kind: wide
+  subject: hhID
+  variables:
+    prevax.B.Brisbane:
+      timing: pre
+      role: baseline
+      label: Pre-vaccination HAI titer (9 distinct dilutions; fails rule 9)
+      endpoint: titer
+      order: 0
+    postvax.B.Brisbane:
+      timing: post
+      role: primary
+      label: Post-vaccination HAI titer, 30 days (dilution series, 10 distinct)
+      endpoint: titer
+      order: 1
+    age:
+      timing: pre
+      role: baseline
+      label: Age in years
+      endpoint: null
+      order: 0
+  exclude:
+    surv_time: rule 8 censored
+    vaccine: received vaccine (actual), not allocation
+notes: Titers are a two-fold dilution series; the conventional analysis log2-transforms them, which is exactly a scale choice.

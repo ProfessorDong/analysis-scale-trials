@@ -1,0 +1,42 @@
+id: Colorec_Allianc_1994_201
+source: PDS
+nct: NCT00002575
+title: 'COST (INT-0146): laparoscopic-assisted vs open colectomy for colon cancer'
+design: parallel
+unit: individual
+status: included
+arms:
+  file: master.csv
+  subject: ANON_ID
+  column: arm
+  evidence: 'Data dictionary: arm = Analysis Arm, A = Open, B = LAP'
+tables:
+- file: master.csv
+  kind: wide
+  subject: ANON_ID
+  variables:
+    surgtime:
+      timing: post
+      role: secondary
+      label: Length of surgery (minutes); not censored
+      endpoint: surgtime
+      order: 1
+    los:
+      timing: post
+      role: secondary
+      label: Length of hospital stay (days); recovery outcome, not censored in the deposit
+      endpoint: los
+      order: 1
+    daysnarc:
+      timing: post
+      role: secondary
+      label: Length of narcotic use (days)
+      endpoint: daysnarc
+      order: 1
+  exclude:
+    converte: rule 8 code (reason for conversion)
+    dfs_time: rule 8 censored
+    fu_time: rule 8 censored
+    pg_time: rule 8 censored
+notes: Primary endpoint was time to recurrence (non-inferiority). The three retained variables are secondary recovery outcomes.
+  All 871 randomized retained (rule 2).

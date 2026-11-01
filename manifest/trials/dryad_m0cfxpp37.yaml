@@ -1,0 +1,174 @@
+id: dryad_m0cfxpp37
+doi: 10.5061/dryad.m0cfxpp37
+source: Dryad
+title: 'CLIMB: chlorhexidine oral rinses vs placebo for symptomatic COPD, randomized 1:1'
+design: parallel
+unit: individual
+status: included
+arms:
+  file: doi_10.5061_dryad.m0cfxpp37__CLIMB_AnalysisDataset_BMJOpen_v4.csv
+  subject: subject_id
+  column: randassign
+  evidence: Column randassign = active / placebo (24 / 20); microbial *_group_* columns are taxa, not allocation
+tables:
+- file: doi_10.5061_dryad.m0cfxpp37__CLIMB_AnalysisDataset_BMJOpen_v4.csv
+  kind: wide
+  subject: subject_id
+  variables:
+    sgrq_symptoms_score_visit1:
+      timing: pre
+      role: baseline
+      label: SGRQ symptoms at visit 1 (baseline)
+      endpoint: sgrq_symptoms
+      order: 0
+    sgrq_activity_score_visit1:
+      timing: pre
+      role: baseline
+      label: SGRQ activity at visit 1 (baseline)
+      endpoint: sgrq_activity
+      order: 0
+    sgrq_impacts_score_visit1:
+      timing: pre
+      role: baseline
+      label: SGRQ impacts at visit 1 (baseline)
+      endpoint: sgrq_impacts
+      order: 0
+    sgrq_total_score_visit1:
+      timing: pre
+      role: baseline
+      label: SGRQ total at visit 1 (baseline)
+      endpoint: sgrq_total
+      order: 0
+    sgrq_symptoms_score_visit2:
+      timing: post
+      role: secondary
+      label: SGRQ symptoms at visit 2 (week 8)
+      endpoint: sgrq_symptoms
+      order: 1
+    sgrq_activity_score_visit2:
+      timing: post
+      role: secondary
+      label: SGRQ activity at visit 2 (week 8)
+      endpoint: sgrq_activity
+      order: 1
+    sgrq_impacts_score_visit2:
+      timing: post
+      role: secondary
+      label: SGRQ impacts at visit 2 (week 8)
+      endpoint: sgrq_impacts
+      order: 1
+    sgrq_total_score_visit2:
+      timing: post
+      role: secondary
+      label: SGRQ total at visit 2 (week 8)
+      endpoint: sgrq_total
+      order: 1
+    biomass_norm_ow1:
+      timing: pre
+      role: baseline
+      label: Oral wash 16S biomass, normalized, baseline
+      endpoint: biomass_ow
+      order: 0
+    biomass_norm_ow2:
+      timing: post
+      role: primary
+      label: Oral wash 16S biomass, normalized, week 8 (primary endpoint)
+      endpoint: biomass_ow
+      order: 1
+    biomass_norm_spt1:
+      timing: pre
+      role: baseline
+      label: Sputum biomass baseline
+      endpoint: biomass_spt
+      order: 0
+    biomass_norm_spt2:
+      timing: post
+      role: primary
+      label: Sputum biomass week 8
+      endpoint: biomass_spt
+      order: 1
+    shannon_ow1:
+      timing: pre
+      role: baseline
+      label: Oral Shannon diversity baseline
+      endpoint: shannon_ow
+      order: 0
+    shannon_ow2:
+      timing: post
+      role: secondary
+      label: Oral Shannon diversity week 8
+      endpoint: shannon_ow
+      order: 1
+    simpson_ow1:
+      timing: pre
+      role: baseline
+      label: Oral Simpson diversity baseline
+      endpoint: simpson_ow
+      order: 0
+    simpson_ow2:
+      timing: post
+      role: secondary
+      label: Oral Simpson diversity week 8
+      endpoint: simpson_ow
+      order: 1
+    shannon_spt1:
+      timing: pre
+      role: baseline
+      label: Sputum Shannon baseline
+      endpoint: shannon_spt
+      order: 0
+    shannon_spt2:
+      timing: post
+      role: secondary
+      label: Sputum Shannon week 8
+      endpoint: shannon_spt
+      order: 1
+    crp:
+      timing: pre
+      role: baseline
+      label: CRP at baseline (crp_changew8 exists, so crp is the baseline value)
+      endpoint: null
+      order: 0
+    fibrinogen:
+      timing: pre
+      role: baseline
+      label: Fibrinogen at baseline
+      endpoint: null
+      order: 0
+    leukocyte:
+      timing: pre
+      role: baseline
+      label: Leukocytes at baseline
+      endpoint: null
+      order: 0
+    fev1_predict:
+      timing: pre
+      role: baseline
+      label: FEV1 percent predicted at baseline
+      endpoint: null
+      order: 0
+    fvc_predict:
+      timing: pre
+      role: baseline
+      label: FVC percent predicted at baseline
+      endpoint: null
+      order: 0
+    pack_years:
+      timing: pre
+      role: baseline
+      label: Pack-years
+      endpoint: null
+      order: 0
+    years_smoke:
+      timing: pre
+      role: baseline
+      label: Years smoked
+      endpoint: null
+      order: 0
+  exclude:
+    '*_chang*': rule 8 change scores
+    '*_chg*': rule 8
+    biomass_raw_*: rule 8 duplicate of normalized
+    mass_sample_*: process
+    '*_ow1': taxon abundances, rule 9 (mostly zero)
+    '*_spt*': taxon abundances

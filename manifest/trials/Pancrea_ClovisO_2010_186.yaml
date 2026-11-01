@@ -1,0 +1,143 @@
+id: Pancrea_ClovisO_2010_186
+source: PDS
+nct: NCT01124786
+title: 'Clovis CO-101-001 (LEAP): CO-101 (gemcitabine elaidate) vs gemcitabine, metastatic pancreatic cancer'
+design: parallel
+unit: individual
+status: included
+arms:
+  file: adsl.sas7bdat
+  subject: USUBJID
+  column: TRT01P
+  evidence: 'ADaM ADSL: TRT01P planned treatment; TRT01A actual'
+tables:
+- file: adlb.sas7bdat
+  kind: long
+  subject: USUBJID
+  param: PARAMCD
+  value: AVAL
+  visit: AVISIT
+  role: safety_lab
+  visits:
+    pre:
+    - Screening
+    - Baseline
+    pre_dose:
+    - Cycle 1 1a (Day 1)
+    post: ^Cycle (\d+) (?:1[ab] )?\(Day (\d+)\)$
+  param_roles:
+    CA19_9AG: secondary
+  exclude_params:
+    NEUTB: rule 13 or morphology flags
+    NEUTBLE: rule 13 or morphology flags
+    METAMY: rule 13 or morphology flags
+    METAMYLE: rule 13 or morphology flags
+    MYCY: rule 13 or morphology flags
+    MYCYLE: rule 13 or morphology flags
+    HYPO: rule 13 or morphology flags
+    MACROCY: rule 13 or morphology flags
+    RBCNUC: rule 13 or morphology flags
+    ANISO: rule 13 or morphology flags
+    LYMAT: rule 13 or morphology flags
+    LYMATLE: rule 13 or morphology flags
+    POIKILO: rule 13 or morphology flags
+    POLYCHR: rule 13 or morphology flags
+    TARGCELL: rule 13 or morphology flags
+    ROULEAUX: rule 13 or morphology flags
+    EGFRCG: rule 13 or morphology flags
+    ELLIPCY: rule 13 or morphology flags
+    BLAST: rule 13 or morphology flags
+    BLASTLE: rule 13 or morphology flags
+    PLATGNT: rule 13 or morphology flags
+    ACANT: rule 13 or morphology flags
+    TOXGRAN: rule 13 or morphology flags
+- file: advs.sas7bdat
+  kind: long
+  subject: USUBJID
+  param: PARAMCD
+  value: AVAL
+  visit: AVISIT
+  role: vital
+  visits:
+    pre:
+    - Screening
+    - Baseline
+    pre_dose:
+    - Cycle 1 1a (Day 1)
+    post: ^Cycle (\d+) (?:1[ab] )?\(Day (\d+)\)$
+  exclude_params:
+    HEIGHT: not an outcome
+- file: adeg.sas7bdat
+  kind: long
+  subject: USUBJID
+  param: PARAMCD
+  value: AVAL
+  visit: AVISIT
+  role: safety_lab
+  visits:
+    pre:
+    - Baseline
+    pre_dose:
+    - Cycle 1 1a (Day 1)
+    post:
+    - Cycle 1 1b (Day 29)
+- file: adqs.sas7bdat
+  kind: long
+  subject: USUBJID
+  param: PARAMCD
+  value: AVAL
+  visit: AVISIT
+  role: pro
+  visits:
+    pre:
+    - Screening
+    - Baseline
+    pre_dose:
+    - Cycle 1 1a (Day 1)
+    post: ^Cycle (\d+) (?:1[ab] )?\(Day (\d+)\)$
+  exclude_params:
+    EQ5D0101: rule 9 single EQ-5D item
+    EQ5D0102: rule 9 single EQ-5D item
+    EQ5D0103: rule 9 single EQ-5D item
+    EQ5D0104: rule 9 single EQ-5D item
+    EQ5D0105: rule 9 single EQ-5D item
+- file: adsl.sas7bdat
+  kind: wide
+  subject: USUBJID
+  variables:
+    AGE:
+      timing: pre
+      role: baseline
+      label: Age
+      endpoint: null
+      order: 0
+    HEIGHT:
+      timing: pre
+      role: baseline
+      label: Baseline height
+      endpoint: null
+      order: 0
+    WEIGHT:
+      timing: pre
+      role: baseline
+      label: Baseline weight
+      endpoint: null
+      order: 0
+    BSA:
+      timing: pre
+      role: baseline
+      label: Baseline BSA
+      endpoint: null
+      order: 0
+    BCA199:
+      timing: pre
+      role: baseline
+      label: Baseline CA19-9
+      endpoint: null
+      order: 0
+  exclude:
+    DEATHDY: rule 8
+    RANDDUR: rule 8
+    DIAGDUR: rule 8 derived duration
+    METDDUR: rule 8
+    DGMTDUR: rule 8

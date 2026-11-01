@@ -1,0 +1,33 @@
+id: Multiple_Allianc_2002_213
+source: PDS
+nct: NCT00052910
+title: 'CALGB 80101: adjuvant chemoradiation regimens after gastric resection'
+design: parallel
+unit: individual
+status: negative_control_only
+arms:
+  file: NCT00052910_D1_(EFFICACY).csv
+  subject: MASK_ID
+  column: TREAT_ASSIGNED
+  evidence: 'Data dictionary: TREAT_ASSIGNED 1/2 = randomized arm'
+tables:
+- file: NCT00052910_D1_(EFFICACY).csv
+  kind: wide
+  subject: MASK_ID
+  variables:
+    num_lymph_node_examined:
+      timing: pre
+      role: baseline
+      label: Nodes examined at the resection that preceded randomization
+      endpoint: null
+      order: 0
+    num_pos_lymph_node:
+      timing: pre
+      role: baseline
+      label: Positive nodes at resection
+      endpoint: null
+      order: 0
+  exclude:
+    os_year: rule 8
+    DFS_year: rule 8
+    STRATUM_GRP_ID: rule 8 code

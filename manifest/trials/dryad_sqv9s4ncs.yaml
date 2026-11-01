@@ -1,0 +1,35 @@
+id: dryad_sqv9s4ncs
+doi: 10.5061/dryad.sqv9s4ncs
+source: Dryad
+title: 'KAT-AKI: kidney action team recommendations for hospitalized AKI, randomized'
+status: negative_control_only
+why: 'rules 5 and 8: outcomes are binary (primary_outcome, dialysis, death) or counts of recommendations delivered (process);
+  baseline_creat and start2enrollment_days are the only continuous variables and both are pre-randomization, so the deposit
+  would contribute negative controls only; retained in the ledger as negative_control_only'
+design: parallel
+unit: individual
+arms:
+  file: doi_10.5061_dryad.sqv9s4ncs__KAT-AKI_limited_dataset.04-23-26.csv
+  subject: null
+  column: randomization
+  evidence: Column randomization 0/1 (2,004 / 1,999)
+tables:
+- file: doi_10.5061_dryad.sqv9s4ncs__KAT-AKI_limited_dataset.04-23-26.csv
+  kind: wide
+  subject: null
+  variables:
+    baseline_creat:
+      timing: pre
+      role: baseline
+      label: Baseline creatinine
+      endpoint: null
+      order: 0
+    age_int:
+      timing: pre
+      role: baseline
+      label: Age (integer)
+      endpoint: null
+      order: 0
+  exclude:
+    '*_count*': rule 8 process
+    total_recs*: rule 8 process

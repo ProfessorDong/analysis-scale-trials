@@ -1,0 +1,99 @@
+id: dryad_8cz8w9gsn
+doi: 10.5061/dryad.8cz8w9gsn
+source: Dryad
+title: 'Insulin sensitivity in mesolimbic pathways: 3-month caloric restriction vs active waiting group, randomized'
+design: parallel
+unit: individual
+status: included
+arms:
+  file: doi_10.5061_dryad.8cz8w9gsn__characteristics_behavioral_data.csv
+  subject: ID
+  column: group
+  read_kw:
+    encoding: utf-8-sig
+  evidence: 'README: group = diet group / waiting group; abstract: ''randomization to a 3-month caloric restriction or active
+    waiting group'''
+tables:
+- file: doi_10.5061_dryad.8cz8w9gsn__characteristics_behavioral_data.csv
+  kind: wide
+  subject: ID
+  read_kw:
+    encoding: utf-8-sig
+  variables:
+    BMI_t0:
+      timing: pre
+      role: baseline
+      label: BMI at t0 (README)
+      endpoint: BMI
+      order: 0
+    BMI_t1:
+      timing: post
+      role: primary
+      label: BMI at t1 follow-up
+      endpoint: BMI
+      order: 1
+    Homa2_PL_t0:
+      timing: pre
+      role: baseline
+      label: HOMA2 at t0
+      endpoint: Homa2
+      order: 0
+    Homa2_PL_t1:
+      timing: post
+      role: secondary
+      label: HOMA2 at t1
+      endpoint: Homa2
+      order: 1
+    HSminLS_liking_PL_t0:
+      timing: pre
+      role: baseline
+      label: High minus low sugar liking, placebo session t0
+      endpoint: HSminLS_PL
+      order: 0
+    HSminLS_liking_PL_t1:
+      timing: post
+      role: secondary
+      label: same at t1
+      endpoint: HSminLS_PL
+      order: 1
+    HSminLS_liking_IN_t0:
+      timing: pre
+      role: baseline
+      label: High minus low sugar liking, insulin session t0
+      endpoint: HSminLS_IN
+      order: 0
+    HSminLS_liking_IN_t1:
+      timing: post
+      role: secondary
+      label: same at t1
+      endpoint: HSminLS_IN
+      order: 1
+    fasting_time_PL_t0:
+      timing: pre
+      role: baseline
+      label: Fasting time before placebo session t0
+      endpoint: null
+      order: 0
+    fasting_time_IN_t0:
+      timing: pre
+      role: baseline
+      label: Fasting time before insulin session t0
+      endpoint: null
+      order: 0
+    food_liking_PL_t0:
+      timing: pre
+      role: baseline
+      label: Mean food liking t0
+      endpoint: null
+      order: 0
+    nonfood_liking_PL_t0:
+      timing: pre
+      role: baseline
+      label: Mean nonfood liking t0
+      endpoint: null
+      order: 0
+  exclude:
+    weight_change_t0_minus_t1_kg: rule 8 change score
+    BMI_diff_t0t1_perc: rule 8 change score
+    hunger_*: rule 9 0-10 rating
+    VTA_BOLD*: imaging contrast at t0 only

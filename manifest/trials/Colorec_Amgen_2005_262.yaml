@@ -1,0 +1,109 @@
+id: Colorec_Amgen_2005_262
+source: PDS
+nct: NCT00115765
+title: 'Amgen 20040249 (PACCE): panitumumab plus bevacizumab and chemotherapy vs bevacizumab and chemotherapy'
+design: parallel
+unit: individual
+status: included
+arms:
+  file: demo.sas7bdat
+  subject: SUBJID
+  column: TRT
+  evidence: 'DDT: TRT = randomized treatment (TRTCD 11/12); ATRT = actual treatment'
+tables:
+- file: lab.sas7bdat
+  kind: long
+  subject: SUBJID
+  param: LBTESTCD
+  value: LBSTRESN
+  visit: VISIT
+  role: safety_lab
+  visits:
+    pre:
+    - Screening
+    pre_dose: []
+    post: ^Week (\d+)$
+  exclude_params:
+    PR24HU: rule 13 (69 rows)
+    PROT_U: rule 13
+    HCGBETC: rule 13
+    TSH: rule 13
+    CRCL_E: derived creatinine clearance (rule 8 derivation)
+  param_roles:
+    CEA: secondary
+- file: vitals_v.sas7bdat
+  kind: long
+  subject: SUBJID
+  param: VSTESTCD
+  value: VSSTRES
+  visit: VISIT
+  role: vital
+  visits:
+    pre:
+    - Screening
+    pre_dose:
+    - Week 0
+    post: ^Week (\d+)$
+  exclude_params:
+    ECOG: rule 9 ordinal 0-4
+- file: lesion.sas7bdat
+  kind: long
+  subject: SUBJID
+  param: LSCAT
+  value: LSSLD
+  visit: VISIT
+  role: tumour
+  visits:
+    pre:
+    - Screening
+    pre_dose: []
+    post: ^Week (\d+)$
+  exclude_params:
+    New lesion: rule 8
+    Non-target lesion: rule 9
+- file: demo.sas7bdat
+  kind: wide
+  subject: SUBJID
+  variables:
+    AGE:
+      timing: pre
+      role: baseline
+      label: Age at randomization (DDT)
+      endpoint: null
+      order: 0
+    B_WEIGHT:
+      timing: pre
+      role: baseline
+      label: Baseline weight (DDT, B_ prefix = baseline)
+      endpoint: null
+      order: 0
+    B_HEIGHT:
+      timing: pre
+      role: baseline
+      label: Baseline height
+      endpoint: null
+      order: 0
+    B_BSA:
+      timing: pre
+      role: baseline
+      label: Baseline body surface area
+      endpoint: null
+      order: 0
+    DIAGMONS:
+      timing: pre
+      role: baseline
+      label: Months since primary diagnosis, (randomization date - DIAGDT)/30.5
+      endpoint: null
+      order: 0
+    METMONS:
+      timing: pre
+      role: baseline
+      label: Months since metastatic diagnosis
+      endpoint: null
+      order: 0
+  exclude:
+    DURSURG: 'pre-randomization history: months from diagnosis to surgery (DDT) but derived and coarse; rule 8'
+    FSTOXDS: rule 8 dose
+    FSTIRDS: rule 8 dose
+    TRTDUR: rule 8 exposure
+    B_LESNM: rule 9 count of lesions

@@ -2,8 +2,8 @@ name: analysis-scale
 channels:
   - conda-forge
 dependencies:
-  - python>=3.11
+  - python>=3.12
   - numpy>=2.0
-  - scipy>=1.13
+  - scipy>=1.14
   - pandas>=2.2
-  - pip
+  - pyyaml>=6.0

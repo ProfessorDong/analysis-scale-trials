@@ -1,19 +1,18 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite the article it accompanies."
-title: "analysis-scale-trials: code and derived results for the analysis-scale reanalysis"
+title: "analysis-scale-trials: code, manifests and derived results for the analysis-scale reanalysis"
 abstract: >-
-  Analysis pipeline, simulation, and derived summary results for a study of how
-  an unrecorded choice of analysis scale changes what a randomized trial
-  concludes, across 27 randomized trials and 1,445 post-randomization
-  comparisons. Two scripts in reproduce/ need no credentials and no local data:
-  reproduce_worked_example.py applies the pre-specified specification menu to a
-  publicly redistributable trial and shows the mean-based P-value moving from
-  0.029 to 0.353 while the rank-based P-value stays put, and
-  reproduce_calibration.py reproduces the null floor that every observed rate
-  must be read against. Contains no participant-level data: results/ holds
-  endpoint-level summaries only, because two of the three trial sources are held
-  under data use agreements that permit publication of aggregate results but not
-  redistribution of records.
+  Analysis pipeline, per-trial manifests, ledgers, simulation and derived
+  results for a study of the analysis scale as an attribute of the
+  treatment-effect estimand: the covariate-specific ROC curve of treated against
+  control outcomes is exactly invariant to strictly increasing transformations
+  while a mean-based summary is not, and the repository rebuilds a comparative
+  reanalysis of 312 post-randomization comparisons from 20 randomized trials
+  with 406 pre-randomization negative controls, a simulation grid, a
+  severity-stratified duloxetine case study and a census of 41,245 registered
+  trials. Contains no participant-level data: results/ holds one row per arm
+  comparison, because two of the three trial sources are held under data use
+  agreements that permit publication of aggregate results only.
 type: software
 authors:
   - family-names: Meng
@@ -30,11 +29,12 @@ authors:
     affiliation: "Department of Electrical and Computer Engineering, Baylor University"
 doi: 10.5281/zenodo.22281795
 license: MIT
-version: 1.0.0
-date-released: "2026-09-02"
+version: 2.0.0
+date-released: "2026-11-01"
 keywords:
   - clinical trials
   - estimands
+  - ROC curve
+  - probabilistic index
   - researcher degrees of freedom
-  - multiverse analysis
   - rank-based inference

@@ -1,0 +1,88 @@
+id: Colorec_Amgen_2004_310
+source: PDS
+nct: NCT00113763
+title: 'Amgen 20020408: panitumumab plus best supportive care vs best supportive care, metastatic colorectal'
+design: parallel
+unit: individual
+status: included
+arms:
+  file: adsl_pds2019.sas7bdat
+  subject: SUBJID
+  column: TRT
+  evidence: 'DDT_408: TRT = randomized treatment; ATRT = actual treatment'
+tables:
+- file: adlb_pds2019.sas7bdat
+  kind: long
+  subject: SUBJID
+  param: LBTEST
+  value: LBSTRESN
+  visit: VISIT
+  role: safety_lab
+  visits:
+    pre:
+    - Screening
+    pre_dose:
+    - Week 1
+    post: ^Week (\d+)$
+  exclude_params:
+    Carcinoembryonic Antigen: tumour marker retained as secondary
+  param_roles:
+    Carcinoembryonic Antigen: secondary
+- file: adls_pds2019.sas7bdat
+  kind: long
+  subject: SUBJID
+  param: LSCAT
+  value: LSSLD
+  visit: VISIT
+  role: tumour
+  visits:
+    pre:
+    - Screening
+    pre_dose: []
+    post: ^Week (\d+)$
+  exclude_params:
+    New lesion: 'rule 8: exists only after progression'
+    Non-target lesion: 'rule 9: non-target lesions are not measured'
+- file: adpm_pds2019.sas7bdat
+  kind: wide_visit
+  subject: SUBJID
+  visit: VISIT
+  role: vital
+  visits:
+    pre:
+    - Screening
+    pre_dose:
+    - Week 1
+    post: ^Week (\d+)$
+  variables:
+    WEIGHT:
+      timing: post
+      role: vital
+      label: Body weight by visit (adpm)
+      endpoint: WEIGHT
+      order: 0
+- file: adsl_pds2019.sas7bdat
+  kind: wide
+  subject: SUBJID
+  variables:
+    AGE:
+      timing: pre
+      role: baseline
+      label: Age
+      endpoint: null
+      order: 0
+    B_WEIGHT:
+      timing: pre
+      role: baseline
+      label: Baseline weight
+      endpoint: null
+      order: 0
+    DIAGMONS:
+      timing: pre
+      role: baseline
+      label: Months since diagnosis
+      endpoint: null
+      order: 0
+  exclude:
+    DTHDYX: rule 8 censored
+    PFSDYCR: rule 8 censored

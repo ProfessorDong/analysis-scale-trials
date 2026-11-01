@@ -1,0 +1,131 @@
+id: Multiple_Brigham_454
+source: PDS
+nct: NCT01169259
+title: 'VITAL: vitamin D and omega-3 fatty acids, 2x2 factorial; knee pain ancillary study'
+design: factorial
+unit: individual
+status: included
+arms:
+  file: VITAL_trial_NEJM_2022.sas7bdat
+  subject: Subject_ID
+  type: factorial
+  factors:
+    vitdactive: vitamin D (1) vs placebo (0)
+    fishoilactive: omega-3 (1) vs placebo (0)
+  evidence: 'Data dictionary: vitdactive, fishoilactive = randomization to active'
+tables:
+- file: vitalkneepain111623.sas7bdat
+  kind: wide
+  subject: Subject_ID
+  variables:
+    pain_base:
+      timing: pre
+      role: pro
+      label: WOMAC pain score at baseline (dictionary)
+      endpoint: pain
+      order: 0
+    function_base:
+      timing: pre
+      role: pro
+      label: WOMAC function score at baseline (dictionary)
+      endpoint: function
+      order: 0
+    stiffness_base:
+      timing: pre
+      role: pro
+      label: WOMAC stiffness score at baseline (dictionary)
+      endpoint: stiffness
+      order: 0
+    pain_yr1:
+      timing: post
+      role: pro
+      label: WOMAC pain score at year 1
+      endpoint: pain
+      order: 1
+    pain_yr2:
+      timing: post
+      role: pro
+      label: WOMAC pain score at year 2
+      endpoint: pain
+      order: 2
+    pain_yr3:
+      timing: post
+      role: pro
+      label: WOMAC pain score at year 3
+      endpoint: pain
+      order: 3
+    pain_yr4:
+      timing: post
+      role: pro
+      label: WOMAC pain score at year 4
+      endpoint: pain
+      order: 4
+    function_yr1:
+      timing: post
+      role: pro
+      label: WOMAC function score at year 1
+      endpoint: function
+      order: 1
+    function_yr2:
+      timing: post
+      role: pro
+      label: WOMAC function score at year 2
+      endpoint: function
+      order: 2
+    function_yr3:
+      timing: post
+      role: pro
+      label: WOMAC function score at year 3
+      endpoint: function
+      order: 3
+    function_yr4:
+      timing: post
+      role: pro
+      label: WOMAC function score at year 4
+      endpoint: function
+      order: 4
+    stiffness_yr1:
+      timing: post
+      role: pro
+      label: WOMAC stiffness score at year 1
+      endpoint: stiffness
+      order: 1
+    stiffness_yr2:
+      timing: post
+      role: pro
+      label: WOMAC stiffness score at year 2
+      endpoint: stiffness
+      order: 2
+    stiffness_yr3:
+      timing: post
+      role: pro
+      label: WOMAC stiffness score at year 3
+      endpoint: stiffness
+      order: 3
+    stiffness_yr4:
+      timing: post
+      role: pro
+      label: WOMAC stiffness score at year 4
+      endpoint: stiffness
+      order: 4
+- file: VITAL_trial_NEJM_2022.sas7bdat
+  kind: wide
+  subject: Subject_ID
+  variables:
+    bmi:
+      timing: pre
+      role: baseline
+      label: BMI at randomization
+      endpoint: null
+      order: 0
+    ageyr:
+      timing: pre
+      role: baseline
+      label: Age at randomization
+      endpoint: null
+      order: 0
+  exclude:
+    '*years': rule 8 censored event times
+    '*yrs': rule 8
+notes: hsCRP and VitD_total (baseline biomarkers) are keyed by newid, which does not link to Subject_ID; excluded. Knee pain
+  cohort is 1,398 of 25,871.

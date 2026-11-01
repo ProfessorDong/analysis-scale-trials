@@ -1,0 +1,70 @@
+id: Breast_Allianc_2009_162
+source: PDS
+nct: NCT00861705
+title: 'CALGB 40603: neoadjuvant carboplatin and/or bevacizumab, 2x2 factorial, triple-negative breast cancer'
+design: factorial
+unit: individual
+status: included
+arms:
+  file: treated2.csv
+  subject: MASK_ID
+  type: factorial
+  factors:
+    factora: carboplatin (1) vs none (0)
+    factorb: bevacizumab (1) vs none (0)
+  evidence: 'Data dictionary: FACTORA/FACTORB = randomized factors; INDRX = 4-arm index'
+tables:
+- file: treated2.csv
+  kind: wide
+  subject: MASK_ID
+  variables:
+    RCB:
+      timing: post
+      role: secondary
+      label: 'Residual cancer burden index at surgery after neoadjuvant therapy (data dictionary: continuous)'
+      endpoint: RCB
+      order: 1
+    nodeaxilpos:
+      timing: post
+      role: secondary
+      label: Number of positive axillary nodes at surgery
+      endpoint: nodeaxilpos
+      order: 1
+    nodesentpos:
+      timing: post
+      role: secondary
+      label: Number of positive sentinel nodes at surgery
+      endpoint: nodesentpos
+      order: 1
+    tsizepe:
+      timing: pre
+      role: baseline
+      label: Baseline tumour size by physical exam (cm)
+      endpoint: null
+      order: 0
+    tsizemamm:
+      timing: pre
+      role: baseline
+      label: Baseline tumour size by mammogram
+      endpoint: null
+      order: 0
+    tsizeultra:
+      timing: pre
+      role: baseline
+      label: Baseline tumour size by ultrasound
+      endpoint: null
+      order: 0
+    tsizemri:
+      timing: pre
+      role: baseline
+      label: Baseline tumour size by MRI
+      endpoint: null
+      order: 0
+  exclude:
+    bev_ndoses: rule 8 exposure
+    pac_ndoses: rule 8 exposure
+    nodeaxilexam: rule 8 process (nodes examined)
+    nodesentexam: rule 8 process
+    her2fish: rule 9 (HER2 ratio, few distinct values in a HER2-negative trial)
+notes: Primary endpoint was binary pathologic complete response (Sikov 2015). 454 enrolled, 443 began treatment; deposited
+  file holds the 443.

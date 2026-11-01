@@ -1,0 +1,69 @@
+id: dryad_sj3tx96k5
+doi: 10.5061/dryad.sj3tx96k5
+source: Dryad
+title: Tailored multichannel weight-loss intervention in adolescents, randomized
+design: parallel
+unit: individual
+status: included
+arms:
+  file: doi_10.5061_dryad.sj3tx96k5__baseline_assessment.csv
+  subject: 'code '
+  column: group
+  evidence: group 1/2 in the baseline file (133/146); the deposit's information sheet describes randomization to intervention
+    and control
+tables:
+- file: doi_10.5061_dryad.sj3tx96k5__baseline_assessment.csv
+  kind: wide
+  subject: 'code '
+  variables:
+    weight:
+      timing: pre
+      role: baseline
+      label: Weight at baseline
+      endpoint: weight
+      order: 0
+    BMI:
+      timing: pre
+      role: baseline
+      label: BMI at baseline
+      endpoint: BMI
+      order: 0
+    height:
+      timing: pre
+      role: baseline
+      label: Height at baseline
+      endpoint: null
+      order: 0
+- file: doi_10.5061_dryad.sj3tx96k5__2_months_assessment.csv
+  kind: wide
+  subject: 'code '
+  variables:
+    weight:
+      timing: post
+      role: primary
+      label: Weight at 2 months
+      endpoint: weight
+      order: 1
+    BMI:
+      timing: post
+      role: primary
+      label: BMI at 2 months
+      endpoint: BMI
+      order: 1
+- file: doi_10.5061_dryad.sj3tx96k5__5_months_assessment.csv
+  kind: wide
+  subject: 'code '
+  variables:
+    weight:
+      timing: post
+      role: primary
+      label: Weight at 5 months (end of intervention)
+      endpoint: weight
+      order: 2
+    BMI:
+      timing: post
+      role: primary
+      label: BMI at 5 months
+      endpoint: BMI
+      order: 2
+notes: Questionnaire items are 5-point Likert and fail rule 9.

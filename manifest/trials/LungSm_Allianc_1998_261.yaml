@@ -1,0 +1,28 @@
+id: LungSm_Allianc_1998_261
+source: PDS
+nct: NCT00003299
+title: 'CALGB 9732: paclitaxel added to cisplatin/etoposide, extensive small-cell lung cancer'
+design: parallel
+unit: individual
+status: negative_control_only
+arms:
+  file: c9732_demographic.sas7bdat
+  subject: PHATOM_ID
+  column: TRT_ARM
+  evidence: 'Dictionary: TRT_ARM 1 = cisplatin,etoposide; 2 = paclitaxel,cisplatin,etoposide,G-CSF'
+tables:
+- file: c9732_demographic.sas7bdat
+  kind: wide
+  subject: PHATOM_ID
+  variables:
+    AGE:
+      timing: pre
+      role: baseline
+      label: Age
+      endpoint: null
+      order: 0
+  exclude:
+    OS_TIME: rule 8
+    PD_TIME: rule 8
+    PFS_TIME: rule 8
+notes: Survival trial; only age is continuous and pre-randomization.

@@ -1,0 +1,544 @@
+id: LungSm_Amgen_2002_266
+source: PDS
+nct: NCT00119613
+title: 'Amgen 20010145: darbepoetin alfa vs placebo with chemotherapy, extensive small-cell lung cancer'
+design: parallel
+unit: individual
+status: included
+arms:
+  file: c_keyvar.sas7bdat
+  subject: SUBJID
+  column: TXGROUP
+  evidence: 'DDT: TXGROUP = randomized treatment group (NESP/PLACEBO); SAFGROUP = treatment actually received'
+tables:
+- file: c_hemat.sas7bdat
+  kind: wide_visit
+  subject: SUBJID
+  visit: WEEK
+  visits: &id001
+    pre_max: 0
+    pre_dose:
+    - 1
+    post_min: 2
+  role: safety_lab
+  variables:
+    RBC:
+      timing: post
+      role: safety_lab
+      label: Hematology RBC by study week (c_hemat)
+      endpoint: RBC
+      order: 0
+    HGB:
+      timing: post
+      role: safety_lab
+      label: Hematology HGB by study week (c_hemat)
+      endpoint: HGB
+      order: 0
+    HCT:
+      timing: post
+      role: safety_lab
+      label: Hematology HCT by study week (c_hemat)
+      endpoint: HCT
+      order: 0
+    PLT:
+      timing: post
+      role: safety_lab
+      label: Hematology PLT by study week (c_hemat)
+      endpoint: PLT
+      order: 0
+    WBC:
+      timing: post
+      role: safety_lab
+      label: Hematology WBC by study week (c_hemat)
+      endpoint: WBC
+      order: 0
+    ANC:
+      timing: post
+      role: safety_lab
+      label: Hematology ANC by study week (c_hemat)
+      endpoint: ANC
+      order: 0
+    NEUT:
+      timing: post
+      role: safety_lab
+      label: Hematology NEUT by study week (c_hemat)
+      endpoint: NEUT
+      order: 0
+    EOSIN:
+      timing: post
+      role: safety_lab
+      label: Hematology EOSIN by study week (c_hemat)
+      endpoint: EOSIN
+      order: 0
+    SEGS:
+      timing: post
+      role: safety_lab
+      label: Hematology SEGS by study week (c_hemat)
+      endpoint: SEGS
+      order: 0
+    BANDS:
+      timing: post
+      role: safety_lab
+      label: Hematology BANDS by study week (c_hemat)
+      endpoint: BANDS
+      order: 0
+- file: c_chem.sas7bdat
+  kind: wide_visit
+  subject: SUBJID
+  visit: WEEK
+  visits: *id001
+  role: safety_lab
+  variables:
+    SODIUM:
+      timing: post
+      role: safety_lab
+      label: Chemistry SODIUM by study week (c_chem)
+      endpoint: SODIUM
+      order: 0
+    POTAS:
+      timing: post
+      role: safety_lab
+      label: Chemistry POTAS by study week (c_chem)
+      endpoint: POTAS
+      order: 0
+    CL:
+      timing: post
+      role: safety_lab
+      label: Chemistry CL by study week (c_chem)
+      endpoint: CL
+      order: 0
+    BICARB:
+      timing: post
+      role: safety_lab
+      label: Chemistry BICARB by study week (c_chem)
+      endpoint: BICARB
+      order: 0
+    TLPROT:
+      timing: post
+      role: safety_lab
+      label: Chemistry TLPROT by study week (c_chem)
+      endpoint: TLPROT
+      order: 0
+    ALBUMN:
+      timing: post
+      role: safety_lab
+      label: Chemistry ALBUMN by study week (c_chem)
+      endpoint: ALBUMN
+      order: 0
+    GLUC:
+      timing: post
+      role: safety_lab
+      label: Chemistry GLUC by study week (c_chem)
+      endpoint: GLUC
+      order: 0
+    BUN:
+      timing: post
+      role: safety_lab
+      label: Chemistry BUN by study week (c_chem)
+      endpoint: BUN
+      order: 0
+    UREA:
+      timing: post
+      role: safety_lab
+      label: Chemistry UREA by study week (c_chem)
+      endpoint: UREA
+      order: 0
+    CREAT:
+      timing: post
+      role: safety_lab
+      label: Chemistry CREAT by study week (c_chem)
+      endpoint: CREAT
+      order: 0
+    URACID:
+      timing: post
+      role: safety_lab
+      label: Chemistry URACID by study week (c_chem)
+      endpoint: URACID
+      order: 0
+    TLBILI:
+      timing: post
+      role: safety_lab
+      label: Chemistry TLBILI by study week (c_chem)
+      endpoint: TLBILI
+      order: 0
+    ALKPH:
+      timing: post
+      role: safety_lab
+      label: Chemistry ALKPH by study week (c_chem)
+      endpoint: ALKPH
+      order: 0
+    LDH:
+      timing: post
+      role: safety_lab
+      label: Chemistry LDH by study week (c_chem)
+      endpoint: LDH
+      order: 0
+    SGOT:
+      timing: post
+      role: safety_lab
+      label: Chemistry SGOT by study week (c_chem)
+      endpoint: SGOT
+      order: 0
+    SGPT:
+      timing: post
+      role: safety_lab
+      label: Chemistry SGPT by study week (c_chem)
+      endpoint: SGPT
+      order: 0
+- file: c_vitals.sas7bdat
+  kind: wide_visit
+  subject: SUBJID
+  visit: WEEK
+  visits: *id001
+  role: vital
+  variables:
+    SBP:
+      timing: post
+      role: vital
+      label: Vital sign SBP by study week (c_vitals)
+      endpoint: SBP
+      order: 0
+    DBP:
+      timing: post
+      role: vital
+      label: Vital sign DBP by study week (c_vitals)
+      endpoint: DBP
+      order: 0
+    PULSE:
+      timing: post
+      role: vital
+      label: Vital sign PULSE by study week (c_vitals)
+      endpoint: PULSE
+      order: 0
+- file: c_lesion.sas7bdat
+  kind: wide_visit
+  subject: SUBJID
+  visit: WEEK
+  visits: *id001
+  role: tumour
+  variables:
+    CXSINDEX:
+      timing: post
+      role: tumour
+      label: Chest X-ray target lesion sum (DDT)
+      endpoint: CXSINDEX
+      order: 0
+    CTSINDEX:
+      timing: post
+      role: tumour
+      label: CT scan target lesion sum (DDT)
+      endpoint: CTSINDEX
+      order: 0
+- file: a_qol.sas7bdat
+  kind: wide
+  subject: SUBJID
+  variables:
+    FATB:
+      timing: pre
+      role: pro
+      label: FACT FAT baseline score
+      endpoint: FAT
+      order: 0
+    FGTB:
+      timing: pre
+      role: pro
+      label: FACT FGT baseline score
+      endpoint: FGT
+      order: 0
+    FGFB:
+      timing: pre
+      role: pro
+      label: FACT FGF baseline score
+      endpoint: FGF
+      order: 0
+    FGPB:
+      timing: pre
+      role: pro
+      label: FACT FGP baseline score
+      endpoint: FGP
+      order: 0
+    FGEB:
+      timing: pre
+      role: pro
+      label: FACT FGE baseline score
+      endpoint: FGE
+      order: 0
+    FGSB:
+      timing: pre
+      role: pro
+      label: FACT FGS baseline score
+      endpoint: FGS
+      order: 0
+    HSIB:
+      timing: pre
+      role: pro
+      label: FACT HSI baseline score
+      endpoint: HSI
+      order: 0
+    VASB:
+      timing: pre
+      role: pro
+      label: FACT VAS baseline score
+      endpoint: VAS
+      order: 0
+    FANB:
+      timing: pre
+      role: pro
+      label: FACT FAN baseline score
+      endpoint: FAN
+      order: 0
+    FATW7:
+      timing: post
+      role: pro
+      label: FACT FAT score at week 7
+      endpoint: FAT
+      order: 1
+    FATW13:
+      timing: post
+      role: pro
+      label: FACT FAT score at week 13
+      endpoint: FAT
+      order: 2
+    FATW24:
+      timing: post
+      role: pro
+      label: FACT FAT score at week 24
+      endpoint: FAT
+      order: 3
+    FATW50:
+      timing: post
+      role: pro
+      label: FACT FAT score at week 50
+      endpoint: FAT
+      order: 4
+    FGTW7:
+      timing: post
+      role: pro
+      label: FACT FGT score at week 7
+      endpoint: FGT
+      order: 1
+    FGTW13:
+      timing: post
+      role: pro
+      label: FACT FGT score at week 13
+      endpoint: FGT
+      order: 2
+    FGTW24:
+      timing: post
+      role: pro
+      label: FACT FGT score at week 24
+      endpoint: FGT
+      order: 3
+    FGTW50:
+      timing: post
+      role: pro
+      label: FACT FGT score at week 50
+      endpoint: FGT
+      order: 4
+    FGFW7:
+      timing: post
+      role: pro
+      label: FACT FGF score at week 7
+      endpoint: FGF
+      order: 1
+    FGFW13:
+      timing: post
+      role: pro
+      label: FACT FGF score at week 13
+      endpoint: FGF
+      order: 2
+    FGFW24:
+      timing: post
+      role: pro
+      label: FACT FGF score at week 24
+      endpoint: FGF
+      order: 3
+    FGFW50:
+      timing: post
+      role: pro
+      label: FACT FGF score at week 50
+      endpoint: FGF
+      order: 4
+    FGPW7:
+      timing: post
+      role: pro
+      label: FACT FGP score at week 7
+      endpoint: FGP
+      order: 1
+    FGPW13:
+      timing: post
+      role: pro
+      label: FACT FGP score at week 13
+      endpoint: FGP
+      order: 2
+    FGPW24:
+      timing: post
+      role: pro
+      label: FACT FGP score at week 24
+      endpoint: FGP
+      order: 3
+    FGPW50:
+      timing: post
+      role: pro
+      label: FACT FGP score at week 50
+      endpoint: FGP
+      order: 4
+    FGEW7:
+      timing: post
+      role: pro
+      label: FACT FGE score at week 7
+      endpoint: FGE
+      order: 1
+    FGEW13:
+      timing: post
+      role: pro
+      label: FACT FGE score at week 13
+      endpoint: FGE
+      order: 2
+    FGEW24:
+      timing: post
+      role: pro
+      label: FACT FGE score at week 24
+      endpoint: FGE
+      order: 3
+    FGEW50:
+      timing: post
+      role: pro
+      label: FACT FGE score at week 50
+      endpoint: FGE
+      order: 4
+    FGSW7:
+      timing: post
+      role: pro
+      label: FACT FGS score at week 7
+      endpoint: FGS
+      order: 1
+    FGSW13:
+      timing: post
+      role: pro
+      label: FACT FGS score at week 13
+      endpoint: FGS
+      order: 2
+    FGSW24:
+      timing: post
+      role: pro
+      label: FACT FGS score at week 24
+      endpoint: FGS
+      order: 3
+    FGSW50:
+      timing: post
+      role: pro
+      label: FACT FGS score at week 50
+      endpoint: FGS
+      order: 4
+    HSIW7:
+      timing: post
+      role: pro
+      label: FACT HSI score at week 7
+      endpoint: HSI
+      order: 1
+    HSIW13:
+      timing: post
+      role: pro
+      label: FACT HSI score at week 13
+      endpoint: HSI
+      order: 2
+    HSIW24:
+      timing: post
+      role: pro
+      label: FACT HSI score at week 24
+      endpoint: HSI
+      order: 3
+    HSIW50:
+      timing: post
+      role: pro
+      label: FACT HSI score at week 50
+      endpoint: HSI
+      order: 4
+    VASW7:
+      timing: post
+      role: pro
+      label: FACT VAS score at week 7
+      endpoint: VAS
+      order: 1
+    VASW13:
+      timing: post
+      role: pro
+      label: FACT VAS score at week 13
+      endpoint: VAS
+      order: 2
+    VASW24:
+      timing: post
+      role: pro
+      label: FACT VAS score at week 24
+      endpoint: VAS
+      order: 3
+    VASW50:
+      timing: post
+      role: pro
+      label: FACT VAS score at week 50
+      endpoint: VAS
+      order: 4
+    FANW7:
+      timing: post
+      role: pro
+      label: FACT FAN score at week 7
+      endpoint: FAN
+      order: 1
+    FANW13:
+      timing: post
+      role: pro
+      label: FACT FAN score at week 13
+      endpoint: FAN
+      order: 2
+    FANW24:
+      timing: post
+      role: pro
+      label: FACT FAN score at week 24
+      endpoint: FAN
+      order: 3
+    FANW50:
+      timing: post
+      role: pro
+      label: FACT FAN score at week 50
+      endpoint: FAN
+      order: 4
+  exclude:
+    '*CHG*': rule 8 change scores
+    '*EOS': rule 12 end-of-study visit
+- file: c_bchar.sas7bdat
+  kind: wide
+  subject: SUBJID
+  variables:
+    AGE:
+      timing: pre
+      role: baseline
+      label: Age
+      endpoint: null
+      order: 0
+    B_HGB:
+      timing: pre
+      role: baseline
+      label: Baseline hemoglobin
+      endpoint: null
+      order: 0
+    B_SEREPO:
+      timing: pre
+      role: baseline
+      label: Baseline serum erythropoietin
+      endpoint: null
+      order: 0
+    B_WEIGHT:
+      timing: pre
+      role: baseline
+      label: Baseline weight
+      endpoint: null
+      order: 0
+    B_HEIGHT:
+      timing: pre
+      role: baseline
+      label: Baseline height
+      endpoint: null
+      order: 0
+notes: Primary endpoints were change in hemoglobin and transfusion; hemoglobin by week is the primary-endpoint quantity. c_iron
+  is drawn at study day <= 1 only (pre_dose) and is not used.

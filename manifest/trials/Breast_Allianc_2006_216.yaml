@@ -1,0 +1,42 @@
+id: Breast_Allianc_2006_216
+source: PDS
+nct: NCT00265759
+title: 'ACOSOG Z1031: neoadjuvant exemestane vs letrozole vs anastrozole'
+design: multiarm
+unit: individual
+status: included
+arms:
+  file: NCT00265759.csv
+  subject: mask_id
+  column: randf
+  evidence: 'Data dictionary: RANDF = Treatment arm (Arm 1) Exemestane, (Arm 2) Letrozole, (Arm 3) Anastrozole'
+tables:
+- file: NCT00265759.csv
+  kind: wide
+  subject: mask_id
+  variables:
+    pki67:
+      timing: pre
+      role: baseline
+      label: PKI67 = Baseline Ki67 (data dictionary)
+      endpoint: Ki67
+      order: 0
+    ski67:
+      timing: post
+      role: secondary
+      label: SKI67 = Post-surgery Ki67 score (data dictionary); surgery follows 16 weeks of allocated aromatase inhibitor
+      endpoint: Ki67
+      order: 1
+    PREALLRE:
+      timing: pre
+      role: baseline
+      label: Baseline Allred score (0-8; fails rule 9)
+      endpoint: null
+      order: 0
+    SXALLRED:
+      timing: post
+      role: secondary
+      label: Post-surgery Allred score (0-8; fails rule 9)
+      endpoint: Allred
+      order: 1
+notes: Primary endpoint was clinical response at 16 weeks (protocol); Ki67 at surgery is a secondary biomarker endpoint.

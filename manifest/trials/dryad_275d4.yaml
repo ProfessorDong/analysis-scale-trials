@@ -1,0 +1,61 @@
+id: dryad_275d4
+doi: 10.5061/dryad.275d4
+source: Dryad
+title: 'Panigrahi 2017: randomized synbiotic trial to prevent sepsis in rural Indian newborns'
+design: parallel
+unit: individual
+status: included
+arms:
+  file: doi_10.5061_dryad.275d4__Panigrahi et al.SEPSSIF.CSV
+  subject: Study_ID
+  column: TX
+  evidence: TX 1/0 = synbiotic/placebo, 2,278 each, matching the published 1:1 allocation of 4,556 infants
+tables:
+- file: doi_10.5061_dryad.275d4__Panigrahi et al.SEPSSIF.CSV
+  kind: wide
+  subject: Study_ID
+  variables:
+    wt7:
+      timing: post
+      role: secondary
+      label: Weight at day 7 (g); dosing began at enrolment (days 2-4)
+      endpoint: weight
+      order: 1
+    Weight_Day_28:
+      timing: post
+      role: secondary
+      label: Weight at day 28 (g)
+      endpoint: weight
+      order: 2
+    wt60:
+      timing: post
+      role: secondary
+      label: Weight at day 60 (g)
+      endpoint: weight
+      order: 3
+    Birth_weight:
+      timing: pre
+      role: baseline
+      label: Birth weight (g)
+      endpoint: null
+      order: 0
+    Weight_Enroll:
+      timing: pre
+      role: baseline
+      label: Weight at enrolment (g)
+      endpoint: null
+      order: 0
+    MOMAGE:
+      timing: pre
+      role: baseline
+      label: Maternal age
+      endpoint: null
+      order: 0
+  exclude:
+    BWT: rule 8 duplicate of Birth_weight
+    WTDIFF: rule 8 change score
+    Total_Doses: rule 8 exposure
+    Treat_time: rule 8 exposure
+    TIME: rule 8 censored time to sepsis
+notes: Study_ID has 4,554 unique values for 4,556 rows; duplicated ids are dropped at the first-record rule. Primary endpoint
+  was sepsis or death (binary).

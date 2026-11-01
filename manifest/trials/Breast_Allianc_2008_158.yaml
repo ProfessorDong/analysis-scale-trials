@@ -1,0 +1,6 @@
+id: Breast_Allianc_2008_158
+source: PDS
+nct: NCT00785291
+title: 'CALGB 40502: nab-paclitaxel or ixabepilone vs paclitaxel, metastatic breast'
+status: excluded
+why: 'rule 8: efficacy file carries only censored months (survmos, fumos, pfsmos, ttfmos); cycles file is exposure'

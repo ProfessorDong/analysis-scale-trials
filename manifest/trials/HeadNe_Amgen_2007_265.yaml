@@ -1,0 +1,91 @@
+id: HeadNe_Amgen_2007_265
+source: PDS
+nct: NCT00460265
+title: 'Amgen 20050251 (SPECTRUM): panitumumab plus chemotherapy vs chemotherapy, recurrent or metastatic head and neck'
+design: parallel
+unit: individual
+status: included
+arms:
+  file: demo.sas7bdat
+  subject: SUBJID
+  column: TRT
+  evidence: 'DDT: TRT = randomized treatment (TRTCD 2/50); ATRT = actual'
+tables:
+- file: lab.sas7bdat
+  kind: long
+  subject: SUBJID
+  param: LBTESTCD
+  value: LBSTRESN
+  visit: VISIT
+  role: safety_lab
+  visits:
+    pre:
+    - Screening
+    pre_dose:
+    - Cycle 1, day 1
+    post: ^Cycle (\d+), day (\d+)$
+  exclude_params:
+    PR24HU: rule 13 (69 rows)
+    PROT_U: rule 13
+    HCGBETC: rule 13
+    TSH: rule 13
+    CRCL_E: derived creatinine clearance (rule 8 derivation)
+- file: lesion.sas7bdat
+  kind: long
+  subject: SUBJID
+  param: LSCAT
+  value: LSSLD
+  visit: VISIT
+  role: tumour
+  visits:
+    pre:
+    - Screening
+    pre_dose: []
+    post: ^Week (\d+)$
+  exclude_params:
+    Non-target lesion: rule 9
+- file: demo.sas7bdat
+  kind: wide
+  subject: SUBJID
+  variables:
+    AGE:
+      timing: pre
+      role: baseline
+      label: Age at randomization (DDT)
+      endpoint: null
+      order: 0
+    B_WEIGHT:
+      timing: pre
+      role: baseline
+      label: Baseline weight (DDT, B_ prefix = baseline)
+      endpoint: null
+      order: 0
+    B_HEIGHT:
+      timing: pre
+      role: baseline
+      label: Baseline height
+      endpoint: null
+      order: 0
+    B_BSA:
+      timing: pre
+      role: baseline
+      label: Baseline body surface area
+      endpoint: null
+      order: 0
+    DIAGMONS:
+      timing: pre
+      role: baseline
+      label: Months since primary diagnosis, (randomization date - DIAGDT)/30.5
+      endpoint: null
+      order: 0
+    METMONS:
+      timing: pre
+      role: baseline
+      label: Months since metastatic diagnosis
+      endpoint: null
+      order: 0
+  exclude:
+    BIOPTPCT: rule 9
+    DXMNFDOS: rule 8 dose
+    MXMNFDOS: rule 8 dose
+    TRTDUR: rule 8

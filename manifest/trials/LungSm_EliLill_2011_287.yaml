@@ -1,0 +1,101 @@
+id: LungSm_EliLill_2011_287
+source: PDS
+nct: NCT01439568
+title: Lilly LY2510924 plus carboplatin/etoposide vs carboplatin/etoposide, extensive small-cell lung cancer (phase 2)
+design: parallel
+unit: individual
+status: included
+arms:
+  file: dm.sas7bdat
+  subject: USUBJID
+  column: ARMCD
+  exclude_levels:
+  - SCRNFAIL
+  filter:
+    RANDFL: Y
+  evidence: 'SDTM DM: ARMCD planned arm; RANDFL = randomized flag; SCRNFAIL never randomized'
+tables:
+- file: hema_cen.sas7bdat
+  kind: long
+  subject: USUBJID
+  param: LBTEST
+  value: SIRESN
+  visit: VISIT
+  role: safety_lab
+  visits:
+    pre:
+    - Baseline
+    pre_dose:
+    - Cycle 1
+    post:
+    - Cycle 1 Day 7
+    - Cycle 2
+    - Cycle 3
+  exclude_params:
+    RBC Morphology: rule 9 text result
+- file: chem_cen.sas7bdat
+  kind: long
+  subject: USUBJID
+  param: LBTEST
+  value: SIRESN
+  visit: VISIT
+  role: safety_lab
+  visits:
+    pre:
+    - Baseline
+    pre_dose:
+    - Cycle 1
+    post:
+    - Cycle 1 Day 7
+    - Cycle 2
+    - Cycle 3
+- file: vs.sas7bdat
+  kind: long
+  subject: USUBJID
+  param: VSTESTCD
+  value: VSSTRESN
+  visit: VISIT
+  role: vital
+  visits:
+    pre: []
+    pre_dose:
+    - PRE-TREATMENT
+    - CYCLE 1
+    post:
+    - CYCLE 2
+    - CYCLE 3
+    - CYCLE 4
+    - CYCLE 5
+    - CYCLE 6
+  exclude_params:
+    ECOG: rule 9
+    HGT: height is not an outcome
+- file: tr.sas7bdat
+  kind: long
+  subject: USUBJID
+  param: TRTESTCD
+  value: TRORRES
+  visit: VISIT
+  role: tumour
+  visits:
+    pre: []
+    pre_dose:
+    - Pre-Treatment
+    post:
+    - Cycle 3
+    - Cycle 5
+  exclude_params:
+    LDIAM: per-lesion diameter (rule 8 duplicate of the sum)
+    TUMSTATE: rule 9 categorical
+- file: dm.sas7bdat
+  kind: wide
+  subject: USUBJID
+  variables:
+    AGE:
+      timing: pre
+      role: baseline
+      label: Age
+      endpoint: null
+      order: 0
+notes: The 'Pre-Treatment' visit precedes dosing but its relation to randomization is not stated, so it is pre_dose and unused
+  (rule 7). Screening labs carry LBBLFL in lbcen but that file has no visit labels; hema_cen/chem_cen 'Baseline' is used instead.

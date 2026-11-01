@@ -1,0 +1,34 @@
+trial,source,status,n_post,n_post_last,n_negctl,why
+Breast_Allianc_2002_200,PDS,excluded,0,0,0,"rule 8: the deposit carries only survival and disease-free survival months (survmos, dfsmos) and categorical fields; no continuous outcome and no continuous pre-randomization variable"
+Breast_Allianc_2006_216,PDS,included,3,0,3,
+Breast_Allianc_2008_158,PDS,excluded,0,0,0,"rule 8: efficacy file carries only censored months (survmos, fumos, pfsmos, ttfmos); cycles file is exposure"
+Breast_Allianc_2009_162,PDS,included,4,0,8,
+Colorec_Allianc_1994_201,PDS,included,3,0,0,
+Colorec_Allianc_2004_161,PDS,negative_control_only,0,0,15,
+Colorec_Amgen_2004_310,PDS,included,10,8,13,
+Colorec_Amgen_2005_262,PDS,included,38,38,45,
+Colorec_Amgen_2006_263,PDS,included,36,36,44,
+Colorec_Amgen_2006_309,PDS,included,9,9,14,
+HeadNe_Amgen_2007_265,PDS,included,32,32,38,
+LungSm_Allianc_1998_261,PDS,negative_control_only,0,0,1,
+LungSm_Allianc_2007_218,PDS,excluded,0,0,0,"rule 8: only censored times (survtime, failtime, pfs2) and cycles of maintenance (exposure); no continuous pre-randomization variable (age is categorical)"
+LungSm_Amgen_2002_266,PDS,included,32,32,45,
+LungSm_EliLill_2011_287,PDS,included,36,35,30,
+Multiple_Allianc_2002_202,PDS,included,18,18,30,
+Multiple_Allianc_2002_213,PDS,negative_control_only,0,0,2,
+Multiple_Brigham_454,PDS,included,4,4,8,
+Pancrea_ClovisO_2010_186,PDS,included,61,52,68,
+dryad_18931zdb7,Dryad,excluded,0,0,0,rule 3: open-label CLUSTER randomized trial (deposit title and abstract); participant-level tests invalid
+dryad_275d4,Dryad,included,1,1,3,
+dryad_59zw3r27n,Dryad,included,8,8,11,
+dryad_8cz8w9gsn,Dryad,negative_control_only,0,0,2,
+dryad_9cnp5hqtv,Dryad,excluded,0,0,0,rule 13: 15 participants per arm
+dryad_cv37539,Dryad,included,1,0,1,
+dryad_k3j9kd5qd,Dryad,included,2,0,3,
+dryad_m0cfxpp37,Dryad,included,7,0,14,
+dryad_n8pk0p31r,Dryad,excluded,0,0,0,rule 3: cluster-randomized (README: two-armed open cluster randomized trial)
+dryad_pc866t1t6,Dryad,excluded,0,0,0,"rules 5 and 9: outcomes are binary or categorical (exclusive breastfeeding, challenges); the only continuous variables are message counts (process) and income (baseline, categorical bands)"
+dryad_qnk98sfm2,Dryad,excluded,0,0,0,rule 3: cluster-randomized (title); clusterid has 51 levels
+dryad_rg57q6m,Dryad,included,5,0,3,
+dryad_sj3tx96k5,Dryad,included,2,2,3,
+dryad_sqv9s4ncs,Dryad,negative_control_only,0,0,2,"rules 5 and 8: outcomes are binary (primary_outcome, dialysis, death) or counts of recommendations delivered (process); baseline_creat and start2enrollment_days are the only continuous variables and both are pre-randomization, so the deposit would contribute negative controls only; retained in the ledger as negative_control_only"

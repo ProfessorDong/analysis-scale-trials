@@ -1,0 +1,7 @@
+id: LungSm_Allianc_2007_218
+source: PDS
+nct: NCT00486941
+title: 'CALGB 30504: maintenance sunitinib vs placebo, extensive small-cell lung cancer'
+status: excluded
+why: 'rule 8: only censored times (survtime, failtime, pfs2) and cycles of maintenance (exposure); no continuous pre-randomization
+  variable (age is categorical)'

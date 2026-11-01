@@ -1,0 +1,28 @@
+id: Colorec_Allianc_2004_161
+source: PDS
+nct: NCT00079274
+title: 'N0147: adjuvant FOLFOX with or without cetuximab, stage III colon cancer'
+design: multiarm
+unit: individual
+status: negative_control_only
+arms:
+  file: characteristic.csv
+  subject: mask_id
+  column: ARM
+  evidence: 'DDT: ARM = experimental arm A-F (arms B, C, E, F closed early; all randomized)'
+tables:
+- file: characteristic.csv
+  kind: wide
+  subject: mask_id
+  variables:
+    bmi2:
+      timing: pre
+      role: baseline
+      label: 'DDT: BMI (registration)'
+      endpoint: null
+      order: 0
+  exclude:
+    NUMCYCLE: rule 8 exposure
+    endat_time: rule 8 days on therapy
+    ENDATRSN: rule 8 code
+notes: 'Adjuvant trial: every other numeric variable is a censored event time. Contributes negative controls only.'

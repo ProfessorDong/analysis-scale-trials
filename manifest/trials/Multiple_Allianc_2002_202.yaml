@@ -1,0 +1,101 @@
+id: Multiple_Allianc_2002_202
+source: PDS
+nct: NCT00028431
+title: 'NCCTG N99C4: nicotine inhaler, bupropion, or both for smoking cessation (first randomization)'
+design: multiarm
+unit: individual
+status: included
+arms:
+  file: casecrse.sas7bdat
+  subject: mask_id
+  column: ARM
+  evidence: 'DDT: ARM = first-randomization arm A/B/C; CURR_ARM reflects the second randomization at week 12 and is not used'
+tables:
+- file: visit.sas7bdat
+  kind: wide_windows
+  subject: mask_id
+  time: eval_time
+  filter:
+    FORM: 6
+  role: clinical
+  windows:
+    pre:
+    - null
+    - 0
+    post:
+    - - week 4
+      - 21
+      - 42
+    - - week 8
+      - 42
+      - 70
+    - - week 12
+      - 70
+      - 98
+  variables:
+    CO:
+      timing: post
+      role: primary
+      label: Expired-air carbon monoxide (ppm), the biochemical confirmation of abstinence
+      endpoint: CO
+      order: 0
+    CIGARETS:
+      timing: post
+      role: secondary
+      label: Average daily cigarettes, past 7 days
+      endpoint: CIGARETS
+      order: 0
+    SYS_PRES:
+      timing: post
+      role: vital
+      label: Systolic blood pressure
+      endpoint: SYS_PRES
+      order: 0
+    DIA_PRES:
+      timing: post
+      role: vital
+      label: Diastolic blood pressure
+      endpoint: DIA_PRES
+      order: 0
+    PULSE:
+      timing: post
+      role: vital
+      label: Pulse
+      endpoint: PULSE
+      order: 0
+    bmi:
+      timing: post
+      role: vital
+      label: BMI
+      endpoint: bmi
+      order: 0
+- file: smokehx.sas7bdat
+  kind: wide
+  subject: mask_id
+  variables:
+    AGE1:
+      timing: pre
+      role: baseline
+      label: Age started smoking (history)
+      endpoint: null
+      order: 0
+    CIGPD:
+      timing: pre
+      role: baseline
+      label: Cigarettes per day at entry
+      endpoint: null
+      order: 0
+    SMK_YRS:
+      timing: pre
+      role: baseline
+      label: Years smoked
+      endpoint: null
+      order: 0
+    NUMSTOP:
+      timing: pre
+      role: baseline
+      label: Number of prior quit attempts
+      endpoint: null
+      order: 0
+notes: eval_time = days from first randomization to visit (DDT). Windows follow the protocol schedule (weeks 4, 8, 12 in phase
+  I). First row per participant in a window is used.

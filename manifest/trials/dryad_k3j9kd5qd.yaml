@@ -1,0 +1,56 @@
+id: dryad_k3j9kd5qd
+doi: 10.5061/dryad.k3j9kd5qd
+source: Dryad
+title: IV ferumoxytol vs oral ferrous sulfate for iron-deficiency anaemia in pregnancy
+design: parallel
+unit: individual
+status: included
+arms:
+  file: doi_10.5061_dryad.k3j9kd5qd__Deidentifed_Data4.11.26.csv
+  subject: ID
+  column: arm
+  evidence: Column arm = Oral iron / IV iron (ferumoxytol), 40 each, matching the abstract
+tables:
+- file: doi_10.5061_dryad.k3j9kd5qd__Deidentifed_Data4.11.26.csv
+  kind: wide
+  subject: ID
+  variables:
+    screening_hgb:
+      timing: pre
+      role: baseline
+      label: Hemoglobin at screening
+      endpoint: hgb
+      order: 0
+    fourwk_hgb:
+      timing: post
+      role: primary
+      label: Hemoglobin at week 4 (primary endpoint time)
+      endpoint: hgb
+      order: 1
+    eightwk_hgb:
+      timing: post
+      role: secondary
+      label: Hemoglobin at week 8
+      endpoint: hgb
+      order: 2
+    hgb_admit:
+      timing: post
+      role: secondary
+      label: Hemoglobin at delivery admission
+      endpoint: hgb_admit
+      order: 1
+    ferritin:
+      timing: pre
+      role: baseline
+      label: Ferritin at screening
+      endpoint: null
+      order: 0
+    tsat:
+      timing: pre
+      role: baseline
+      label: Transferrin saturation at screening
+      endpoint: null
+      order: 0
+  exclude:
+    ga_deliv_wks: rule 9 (9 distinct)
+    parity: rule 9

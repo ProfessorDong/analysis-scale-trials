@@ -1,0 +1,84 @@
+id: dryad_rg57q6m
+doi: 10.5061/dryad.rg57q6m
+source: Dryad
+title: 'NTrainer: patterned oral stimulation in preterm infants, multicentre randomized'
+design: parallel
+unit: individual
+status: included
+arms:
+  file: doi_10.5061_dryad.rg57q6m__Song_ntrainerdeidentified_datadryad_2.13.19.csv
+  subject:
+  - siteid
+  - studyid
+  column: Intervention Group
+  evidence: Column 'Intervention Group' = NTrainer Group / Control Group (109/101, matching the abstract); SubGroup is a gestational-age
+    stratum
+tables:
+- file: doi_10.5061_dryad.rg57q6m__Song_ntrainerdeidentified_datadryad_2.13.19.csv
+  kind: wide
+  subject:
+  - siteid
+  - studyid
+  variables:
+    growthvelocity:
+      timing: post
+      role: secondary
+      label: Weight growth velocity (g/kg/day) over the stay
+      endpoint: growthvelocity
+      order: 1
+    ofcgrowth:
+      timing: post
+      role: secondary
+      label: Head circumference growth (cm/week)
+      endpoint: ofcgrowth
+      order: 1
+    on CPAP:
+      timing: post
+      role: clinical
+      label: Days on CPAP during the stay
+      endpoint: on CPAP
+      order: 1
+    on NC:
+      timing: post
+      role: clinical
+      label: Days on nasal cannula
+      endpoint: on NC
+      order: 1
+    on Room Air:
+      timing: post
+      role: clinical
+      label: Days on room air
+      endpoint: on Room Air
+      order: 1
+    bw:
+      timing: pre
+      role: baseline
+      label: Birth weight
+      endpoint: null
+      order: 0
+    ofc:
+      timing: pre
+      role: baseline
+      label: Head circumference at birth
+      endpoint: null
+      order: 0
+    ga:
+      timing: pre
+      role: baseline
+      label: Gestational age at birth
+      endpoint: null
+      order: 0
+  exclude:
+    PMAfirstPO: rule 8 censored (Censoredpo flag)
+    pmafof: rule 8 censored time to full oral feeds
+    pmadischarge: rule 8 censored by transfer/death
+    los: rule 8 censored (Censoredlos flag)
+    Time to FOF: rule 8 censored
+    PMAfirstintervention: rule 8 process
+    interventionnumber: rule 8 process
+    interventionscompleted: rule 8 process
+    percentinterventionscompleted: rule 8 process
+    protocoldeviationpercent: rule 8 process
+    percent*: rule 8 duplicate of day counts as percentages
+notes: 'studyid is a site-local number: three ids recur at different sites, so the participant key is (siteid, studyid), 210
+  unique. Primary endpoint (time to full oral feeds) is censored and excluded.'
