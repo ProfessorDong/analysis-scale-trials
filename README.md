@@ -2,10 +2,9 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22281795.svg)](https://doi.org/10.5281/zenodo.22281795)
 
-Code, manifests, ledgers and derived results for **"The analysis scale and the
-treatment-effect summary: scale-invariant ROC summaries and a comparative
-reanalysis of randomized trials"** (Meng, Tubbs and Dong; submitted to *The
-Annals of Applied Statistics*).
+Code, manifests, ledgers and derived results for **"What the analysis scale costs in
+randomized trials and the scale-invariant summary that avoids it"** (Meng, Tubbs and
+Dong; submitted to *The Annals of Applied Statistics*).
 
 A randomized trial with a continuous endpoint must choose a population-level
 summary of the treatment effect. A difference in means is not fully specified
