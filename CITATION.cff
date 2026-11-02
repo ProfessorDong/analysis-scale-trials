@@ -26,10 +26,10 @@ authors:
   - family-names: Dong
     given-names: Liang
     orcid: "https://orcid.org/0000-0002-8585-1087"
-    affiliation: "Department of Electrical and Computer Engineering, Baylor University"
+    affiliation: "Department of Electrical and Computer Engineering, Baylor University; Department of Radiology, The University of Texas Southwestern Medical Center"
 doi: 10.5281/zenodo.22281795
 license: MIT
-version: 2.0.0
+version: 2.0.1
 date-released: "2026-11-01"
 keywords:
   - clinical trials
